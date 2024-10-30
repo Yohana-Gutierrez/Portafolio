@@ -1,0 +1,31 @@
+---
+// src/components/Tooltip.astro
+
+interface Props {
+  text: string;
+  h?: string;
+  w?: string;
+}
+
+const { text, h, w } = Astro.props; // Obtain props
+---
+
+<div class="relative flex group/tooltip">
+  <slot />
+  <span
+    class="flex justify-center group-hover/tooltip:opacity-100 transition-opacity bg-slate-800 dark:bg-gray-200 px-2 py-1 text-xs dark:text-gray-800 text-white rounded-md absolute left-1/2 -translate-x-1/2 translate-y-full opacity-0 p-1 mx-auto text-center shadow-lg"
+    class:list={{
+      [`${h}`]: h,
+      "-top-14": !h,
+      [`${w}`]: w,
+    }}
+  >
+    {text}
+  </span>
+</div>
+
+<style>
+  .tooltip {
+    cursor: pointer; /* Change cursor to pointer */
+  }
+</style>

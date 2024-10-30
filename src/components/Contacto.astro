@@ -1,0 +1,100 @@
+---
+// src/components/Contacto.astro
+const emailAddress = 'aygutierrezl@unah.hn'; 
+---
+
+<section class="contact-section">
+    <h2>Contacto</h2>
+    <div class="contact-container">
+        <p class="email-display">
+            {emailAddress}
+        </p>
+        <div class="button-group">
+            <button
+                aria-label="Enviar correo"
+                class="action-button"
+                onclick={`location.href='mailto:${emailAddress}'`}
+            >
+                <i class="fas fa-paper-plane"></i> Enviar
+            </button>
+            <button
+                aria-label="Abrir Outlook"
+                class="action-button"
+                id="openOutlookButton"
+            >
+                <i class="fas fa-envelope"></i> Abrir Outlook
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        background-color: #f0f4f8; /* Fondo claro */
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .contact-section h2 {
+        color: #333; /* Texto oscuro */
+        margin-bottom: 1rem;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .email-display {
+        background-color: #e7f3ff; /* Fondo azul claro */
+        border: 1px solid #a5c9ff; /* Borde azul claro */
+        border-radius: 5px;
+        padding: 1rem;
+        width: 100%;
+        max-width: 400px; /* Limitar ancho */
+        font-weight: bold;
+        color: #3a3a3a; /* Texto más oscuro */
+        cursor: default; /* Estilo del cursor */
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1rem; /* Espacio entre botones */
+    }
+
+    .action-button {
+        background-color: #007bff; /* Fondo azul */
+        color: white; /* Texto blanco */
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem; /* Padding de botón */
+        font-size: 1rem;
+        cursor: pointer; /* Cursor tipo puntero */
+        transition: background-color 0.3s, transform 0.2s; /* Animación */
+    }
+
+    .action-button:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+        transform: scale(1.05); /* Aumentar botón al pasar el mouse */
+    }
+
+    .action-button:focus {
+        outline: none; /* Sin contorno por defecto */
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5); /* Contorno en foco */
+    }
+</style>
+
+<script>
+    const openOutlookButton = document.getElementById('openOutlookButton');
+
+    openOutlookButton.addEventListener('click', () => {
+        const subject = encodeURIComponent('Asunto por defecto'); 
+        const body = encodeURIComponent('Cuerpo del mensaje por defecto');
+        location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    });
+</script>

@@ -1,0 +1,25 @@
+---
+// src/components/ProjectCard.astro
+const { project } = Astro.props;
+---
+
+<div class="project-card">
+    <h3>{project.title}</h3>
+    <p>{project.description}</p>
+</div>
+
+<style>
+    .project-card {
+        background-color: var(--soft-blue); /* Fondo azul suave */
+        color: var(--text-color); /* Texto en negro */
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>

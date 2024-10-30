@@ -1,74 +1,78 @@
 ---
-import Icon from './Icon.astro';
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-	<div class="group">
-		<p>
-			Portafolio creado con  <a href="https://astro.build/">Astro</a>
-			
-		</p>
-		<p> -{currentYear} Anny Gutierrez</p>
-	</div>
-	<p class="socials">
-		<a href="https://www.facebook.com/yohana.gutierrez.547727"> Facebook</a>
-		<a href=""> GitHub</a>
-		<a href=""> Instagram</a>
-	</p>
+    <div class="group">
+        <p>
+            Creado con <a href="https://astro.build/">
+                <img src="/assets/logo.jpg" alt="Astro Logo" style="height: 2em; vertical-align: middle; margin-left: 0.25em;" />
+            </a>
+        </p>
+        <p>{currentYear} Anny Gutierrez</p>
+    </div>
+    <p class="socials">
+        <a href="https://facebook.com/me" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://github.com/Yohana-Gutierrez" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/me/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </p>
 </footer>
+
 <style>
-	footer {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
-		margin-top: auto;
-		padding: 3rem 2rem 3rem;
-		text-align: center;
-		color: var(--gray-400);
-		font-size: var(--text-sm);
-	}
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: auto;
+        padding: 3rem 2rem 3rem;
+        text-align: center;
+        color: var(--gray-400);
+        font-size: var(--text-sm);
+    }
 
-	footer a {
-		color: var(--gray-400);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
+    footer a {
+        color: var(--gray-400);
+        text-decoration: none; /* Cambiado a none para evitar subrayados en los íconos */
+        transition: color var(--theme-transition);
+    }
 
-	footer a:hover,
-	footer a:focus {
-		text-decoration-color: currentColor;
-	}
+    footer a:hover,
+    footer a:focus {
+        color: var(--gray-200); /* Cambiar el color al pasar el mouse */
+    }
 
-	.group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
+    .group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 
-	.socials {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
+    .socials {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 
-	@media (min-width: 50em) {
-		footer {
-			flex-direction: row;
-			justify-content: space-between;
-			padding: 2.5rem 5rem;
-		}
+    .socials i {
+        font-size: 1.5em; /* Tamaño de los íconos */
+    }
 
-		.group {
-			flex-direction: row;
-			gap: 1rem;
-			flex-wrap: wrap;
-		}
+    @media (min-width: 50em) {
+        footer {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 2.5rem 5rem;
+        }
 
-		.socials {
-			justify-content: flex-end;
-		}
-	}
+        .group {
+            flex-direction: row;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .socials {
+            justify-content: flex-end;
+        }
+    }
 </style>
