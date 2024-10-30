@@ -90,11 +90,18 @@ const emailAddress = 'aygutierrezl@unah.hn';
 </style>
 
 <script>
-    const openOutlookButton = document.getElementById('openOutlookButton');
+    // Asegúrate de que el script esté en el bloque adecuado
+    document.addEventListener('DOMContentLoaded', () => {
+        const openOutlookButton = document.getElementById('openOutlookButton');
 
-    openOutlookButton.addEventListener('click', () => {
-        const subject = encodeURIComponent('Asunto por defecto'); 
-        const body = encodeURIComponent('Cuerpo del mensaje por defecto');
-        location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+        // Verificamos que el botón no sea nulo antes de añadir el event listener
+        if (openOutlookButton) {
+            openOutlookButton.addEventListener('click', () => {
+                const emailAddress = 'aygutierrezl@unah.hn'; // Asegúrate de que esté disponible aquí
+                const subject = encodeURIComponent('Asunto por defecto'); 
+                const body = encodeURIComponent('Cuerpo del mensaje por defecto');
+                location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+            });
+        }
     });
 </script>

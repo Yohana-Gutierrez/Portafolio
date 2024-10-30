@@ -1,25 +1,80 @@
 ---
-// src/pages/Contact.astro
-import Contacto from '../components/Contacto.astro'; // Asegúrate de que esta ruta sea correcta
+// src/components/Header.astro
+
+import { Astronav, MenuItems } from 'astro-navbar';
+
+const menuitems = [
+    {
+        title: 'Sobre Mí',
+        path: '#about',
+    },
+    {
+        title: 'Proyectos',
+        path: '#projects',
+    },
+    {
+        title: 'Contacto',
+        path: '/Contact', // Cambia aquí a '/contact' para ir a la página de contacto
+    },
+    
+];
 ---
 
-<html lang="es">
-<head>
-    <title>Contacto</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <header>
-        <h1>Contacto</h1>
-        <!-- Puedes añadir un enlace para volver al inicio si lo deseas -->
-    </header>
+<header data-testid="header" class="flex flex-col items-center justify-center mt-5">
+    <Astronav>
+        <div class="flex w-full items-center justify-center lg:w-auto">
+            {/* Elimina el botón "Download CV" si no lo deseas */}
+        </div>
+        <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+            <ul class="flex space-x-4">
+                {
+                    menuitems.map((item) => (
+                        <li key={item.title}>
+                            <a
+                                aria-label="navigation link"
+                                href={item.path}
+                                class="py-2 px-4 text-black bg-transparent hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded transition duration-200"
+                            >
+                                {item.title}
+                            </a>
+                        </li>
+                    ))
+                }
+                {/* Eliminar Toggle para quitar la casilla */}
+            </ul>
+        </MenuItems>
+    </Astronav>
 
-    <!-- Aquí es donde se mostrará el componente de contacto -->
-    <Contacto /> <!-- Llamar al componente de contacto aquí -->
+    <style>
+        header {
+            background-color: #f9f9f9; /* Color de fondo de la barra */
+            padding: 1rem 0; /* Espaciado en la barra */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elevado */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+        }
 
-    <footer>
-        <!-- Pie de página aquí -->
-    </footer>
-</body>
-</html>
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Alinea los elementos al centro */
+        }
+
+        ul {
+            list-style-type: none; /* Elimina viñetas de la lista */
+            padding: 0; /* Elimina padding predeterminado */
+            margin: 0; /* Elimina margen predeterminado */
+        }
+
+        a {
+            text-decoration: none; /* Sin subrayado */
+            color: black; /* Color del texto */
+            padding: 10px 15px; /* Espaciado interno para los enlaces */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+
+        a:hover {
+            background-color: #e2e2e2; /* Color de fondo al pasar el ratón */
+        }
+    </style>
+</header>
