@@ -27,8 +27,8 @@ const menuitems = [
         <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
             <ul class="flex space-x-4">
                 {
-                    menuitems.map((item, index) => (
-                        <li> {/* Ya no se usa 'key' como atributo */}
+                    menuitems.map((item) => (
+                        <li>
                             <a
                                 aria-label="navigation link"
                                 href={item.path}
