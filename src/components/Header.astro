@@ -14,9 +14,8 @@ const menuitems = [
     },
     {
         title: 'Contacto',
-        path: '/Contact', // Cambia aquí a '/contact' para ir a la página de contacto
+        path: '/contact',
     },
-    
 ];
 ---
 
@@ -28,8 +27,8 @@ const menuitems = [
         <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
             <ul class="flex space-x-4">
                 {
-                    menuitems.map((item) => (
-                        <li key={item.title}>
+                    menuitems.map((item, index) => (
+                        <li key={index}> {/* Usar índice como clave aquí */}
                             <a
                                 aria-label="navigation link"
                                 href={item.path}
@@ -40,7 +39,6 @@ const menuitems = [
                         </li>
                     ))
                 }
-                {/* Eliminar Toggle para quitar la casilla */}
             </ul>
         </MenuItems>
     </Astronav>
