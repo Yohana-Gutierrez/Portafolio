@@ -2,6 +2,7 @@
 // src/components/Header.astro
 
 import { Astronav, MenuItems } from 'astro-navbar';
+import { h } from 'preact'; // Asegúrate de importar h si no lo has hecho
 
 const menuitems = [
     {
@@ -26,19 +27,17 @@ const menuitems = [
         </div>
         <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
             <ul class="flex space-x-4">
-                {
-                    menuitems.map((item, index) => (
-                        <li key={item.title}> {/* Usar el título como clave aquí para mejor identificación */}
-                            <a
-                                aria-label="navigation link"
-                                href={item.path}
-                                class="py-2 px-4 text-black bg-transparent hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded transition duration-200"
-                            >
-                                {item.title}
-                            </a>
-                        </li>
-                    ))
-                }
+                {menuitems.map((item) => (
+                    <li key={item.title}> {/* Usar el título como clave aquí */}
+                        <a
+                            aria-label="navigation link"
+                            href={item.path}
+                            class="py-2 px-4 text-black bg-transparent hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 rounded transition duration-200"
+                        >
+                            {item.title}
+                        </a>
+                    </li>
+                ))}
             </ul>
         </MenuItems>
     </Astronav>
