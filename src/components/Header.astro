@@ -7,14 +7,17 @@ const menuitems = [
     {
         title: 'Sobre Mí',
         path: '#about',
+        key: 'sobre-mi', // Añadir una clave única
     },
     {
         title: 'Proyectos',
         path: '#projects',
+        key: 'proyectos', // Añadir una clave única
     },
     {
         title: 'Contacto',
         path: '/contact',
+        key: 'contacto', // Añadir una clave única
     },
 ];
 ---
@@ -27,8 +30,8 @@ const menuitems = [
         <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
             <ul class="flex space-x-4">
                 {
-                    menuitems.map((item, index) => (
-                        <li key={index}> {/* Usar índice como clave aquí */}
+                    menuitems.map((item) => (
+                        <li key={item.key}> {/* Usar la clave única aquí */}
                             <a
                                 aria-label="navigation link"
                                 href={item.path}
