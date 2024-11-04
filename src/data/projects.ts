@@ -1,10 +1,10 @@
-import { TechIcons } from './icons';
+// src/data/projects.ts
 
 export const projects = [
     {
         title: "Tres Rayas en uno",
         description: "Acortador de URL con Base de Datos y arquitectura hexagonal",
-        techs: ["Python"], // Usa las claves como strings
+        techs: ["Python"], // Cada tecnología debe ser una string que coincida con las claves de TechIcons
         link: "https://github.com/Yohana-Gutierrez/Programacion2/tree/master/Capitulo%208/TresEnraya",
     },
     {

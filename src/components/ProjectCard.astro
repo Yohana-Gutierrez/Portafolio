@@ -1,6 +1,6 @@
 ---
 // src/components/ProjectCard.astro
-import { getIcon } from '../data/icons';
+import { getIcon, TechIcons } from '../data/icons';
 const { project } = Astro.props;
 ---
 
@@ -10,7 +10,7 @@ const { project } = Astro.props;
     <div class="tech-icons">
         <strong>Tecnologías:</strong>
         <ul>
-            {project.techs.map((tech) => (
+            {project.techs.map((tech: keyof typeof TechIcons) => (
                 <li class="tech-item">
                     <img src={getIcon(tech)} alt={`${tech} icon`} class="tech-icon" />
                     {tech}
