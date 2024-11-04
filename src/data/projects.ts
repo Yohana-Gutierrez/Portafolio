@@ -1,5 +1,3 @@
-// src/data/projects.ts
-
 import { TechIcons } from './icons.ts'; // Verifica que esta ruta sea correcta
 
 export type Project = {
@@ -26,13 +24,13 @@ export const projects: Project[] = [
     {
         title: "Tic_Tac_Toe",
         description: "El famoso juego de x-0",
+        techs: [TechIcons.Python], // Añade `techs` en el lugar correcto
         link: "https://github.com/Yohana-Gutierrez/POO/tree/main/tic-tac-toe-5Componentes",
-        techs: [TechIcons.Python],
     },
     {
         title: "Terrapez App",
         description: "Reserva de restaurante con Base de Datos",
+        techs: [TechIcons.Firebase, TechIcons.Java],
         link: "https://github.com/Yohana-Gutierrez/POO/tree/main/terrapez%20Restaurante-ProyectoFinal",
-        techs: [TechIcons.Firebase, TechIcons.Java], // Incluye Firebase aquí
     },
 ];
