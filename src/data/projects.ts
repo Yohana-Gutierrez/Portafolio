@@ -1,6 +1,14 @@
 // src/data/projects.ts
+import { TechIcons } from './icons';
 
-export const projects = [
+export type TechKey = keyof typeof TechIcons;
+
+export const projects: {
+    title: string;
+    description: string;
+    techs: TechKey[];
+    link: string;
+}[] = [
     {
         title: "Tres Rayas en uno",
         description: "Acortador de URL con Base de Datos y arquitectura hexagonal",
